@@ -24,7 +24,7 @@ function Login({ setShowRegister }) {
                     "user",
                     JSON.stringify(response.data.user),
                 );
-                window.location.href = "/dashboard";
+                window.location.href = "./dashboard";
             } else {
                 alert(response.data.message);
             }

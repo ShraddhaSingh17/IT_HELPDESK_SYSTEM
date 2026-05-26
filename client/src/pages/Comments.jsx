@@ -27,7 +27,7 @@ function Comments({ ticketId, darkMode }) {
     const addComment = async () => {
         try {
             const response = await axios.post(
-                "${API_BASE_URL}/add_comment.php",
+                `${API_BASE_URL}/add_comment.php`,
                 {
                     ticket_id: ticketId,
                     user_id: user.id,
