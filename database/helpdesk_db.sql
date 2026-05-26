@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2026 at 11:28 AM
+-- Generation Time: May 26, 2026 at 06:42 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -66,7 +66,15 @@ INSERT INTO `activity_logs` (`id`, `ticket_id`, `user_id`, `action`, `created_at
 (24, 27, 1, 'changed status to in_progress', '2026-05-26 08:34:12'),
 (25, 0, 0, '', '2026-05-26 08:34:25'),
 (26, 26, 1, 'changed status to in_progress', '2026-05-26 08:34:25'),
-(27, 26, 1, 'assigned ticket', '2026-05-26 08:34:29');
+(27, 26, 1, 'assigned ticket', '2026-05-26 08:34:29'),
+(28, 0, 0, '', '2026-05-26 14:49:09'),
+(29, 32, 1, 'assigned ticket', '2026-05-26 14:49:10'),
+(30, 0, 0, '', '2026-05-26 14:49:26'),
+(31, 32, 1, 'changed status to resolved', '2026-05-26 14:49:26'),
+(32, 0, 0, '', '2026-05-26 14:49:42'),
+(33, 32, 1, 'changed status to closed', '2026-05-26 14:49:42'),
+(34, 0, 0, '', '2026-05-26 14:50:29'),
+(35, 29, 1, 'changed status to resolved', '2026-05-26 14:50:29');
 
 -- --------------------------------------------------------
 
@@ -109,9 +117,10 @@ INSERT INTO `tickets` (`id`, `title`, `description`, `priority`, `status`, `crea
 (26, 'Email Attachment Upload Failed', 'Unable to send attachments larger than 10MB via email.', 'medium', 'in_progress', 13, 1, '2026-05-26 08:20:41', '2026-05-26 08:34:28', ''),
 (27, 'Microphone Not Working in Meetings', 'My microphone is not working in Zoom/Teams even though it is detected.', 'high', 'in_progress', 13, 1, '2026-05-26 08:22:05', '2026-05-26 08:34:11', ''),
 (28, 'Software Installation Request', 'I need VS COde and Node.js installed for my development work.', 'low', 'open', 13, NULL, '2026-05-26 08:23:10', '2026-05-26 08:29:13', ''),
-(29, 'Wi-Fi Disconnecting Frequently', 'My Wi-Fi keeps disconnecting during meetings and file uploads.', 'high', 'in_progress', 13, 1, '2026-05-26 08:24:23', '2026-05-26 08:34:01', ''),
+(29, 'Wi-Fi Disconnecting Frequently', 'My Wi-Fi keeps disconnecting during meetings and file uploads.', 'high', 'resolved', 13, 1, '2026-05-26 08:24:23', '2026-05-26 14:50:27', ''),
 (30, 'Printer Offline Issue', 'The office printer shows offline for all users in my department.', 'high', 'in_progress', 17, 1, '2026-05-26 08:26:26', '2026-05-26 08:33:51', ''),
-(31, 'Outlook Emails Not Syncing', 'New emails are not appearing in Outlook desktop app, but webmail is working fine.', 'medium', 'open', 17, NULL, '2026-05-26 08:27:54', '2026-05-26 08:27:54', '');
+(31, 'Outlook Emails Not Syncing', 'New emails are not appearing in Outlook desktop app, but webmail is working fine.', 'medium', 'open', 17, NULL, '2026-05-26 08:27:54', '2026-05-26 08:27:54', ''),
+(32, 'New Employee Account Setup', 'A new employee joined. Please create email, system access, and required permissions.', 'high', 'closed', 1, 1, '2026-05-26 14:48:17', '2026-05-26 14:49:40', '');
 
 -- --------------------------------------------------------
 
@@ -179,7 +188,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activity_logs`
 --
 ALTER TABLE `activity_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -191,7 +200,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `tickets`
 --
 ALTER TABLE `tickets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `users`
