@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Login from "./pages/Login";
@@ -10,9 +9,12 @@ import Analytics from "./pages/Analytics";
 import Tickets from "./pages/Tickets";
 import SettingsPage from "./pages/SettingsPage";
 
+import ProtectedRoute from "./pages/ProtectedRoute";
+
 function App() {
     const [showRegister, setShowRegister] = useState(false);
     const user = JSON.parse(localStorage.getItem("user"));
+
     if (!user) {
         return showRegister ? (
             <Register setShowRegister={setShowRegister} />
@@ -20,6 +22,7 @@ function App() {
             <Login setShowRegister={setShowRegister} />
         );
     }
+
     return (
         <BrowserRouter>
             <Routes>
@@ -34,11 +37,32 @@ function App() {
                     }
                 />
 
-                <Route path="/tickets" element={<Tickets />} />
+                <Route
+                    path="/tickets"
+                    element={
+                        <ProtectedRoute user={user}>
+                            <Tickets />
+                        </ProtectedRoute>
+                    }
+                />
 
-                <Route path="/analytics" element={<Analytics />} />
+                <Route
+                    path="/analytics"
+                    element={
+                        <ProtectedRoute user={user} role="admin">
+                            <Analytics />
+                        </ProtectedRoute>
+                    }
+                />
 
-                <Route path="/settings" element={<SettingsPage />} />
+                <Route
+                    path="/settings"
+                    element={
+                        <ProtectedRoute user={user}>
+                            <SettingsPage />
+                        </ProtectedRoute>
+                    }
+                />
 
                 <Route path="*" element={<Navigate to="/dashboard" />} />
             </Routes>

@@ -1,12 +1,12 @@
 import CreateTicket from "./CreateTicket";
 import Layout from "./Layout";
-import ManageTickets from "./ManageTickets";
+import MyTickets from "./MyTickets"
 
 function Tickets() {
     return (
         <Layout title="Tickets">
             <CreateTicket />
-            <ManageTickets />
+            <MyTickets />
         </Layout>
     );
 }
