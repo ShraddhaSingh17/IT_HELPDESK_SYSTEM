@@ -336,14 +336,14 @@ function ManageTickets({ darkMode }) {
                 {currentTickets.map((ticket) => (
                     <div
                         key={ticket.id}
-                        className={`p-6 rounded-3xl border hover:shadow-md transition
+                        className={`p-4 sm:p-6 rounded-3xl border hover:shadow-md transition
                         ${
                             darkMode
                                 ? "bg-slate-900 border-slate-700 text-white"
                                 : "bg-white border-slate-200 text-slate-800"
                         }`}>
-                        <div className="flex justify-between items-center mb-4">
-                            <div className="flex items-center gap-2 mb-2">
+                        <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4 gap-3">
+                            <div className="flex flex-wrap items-center gap-2 mb-2">
                                 <AlertCircle
                                     size={20}
                                     className="text-green-500"
@@ -375,7 +375,7 @@ function ManageTickets({ darkMode }) {
                         </div>
 
                         <p
-                            className={`${darkMode ? "text-slate-300" : "text-gray-600"} mb-4`}>
+                            className={`${darkMode ? "text-slate-300" : "text-gray-600"} mb-4 break-words`}>
                             {ticket.description}
                         </p>
 
@@ -384,7 +384,7 @@ function ManageTickets({ darkMode }) {
                                 href={`${API_BASE_URL}/uploads/${ticket.attachment}`}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="text-green-500 underline block mb-4">
+                                className="text-green-500 underline block mb-4 break-all">
                                 View Attachment
                             </a>
                         )}
@@ -475,9 +475,10 @@ function ManageTickets({ darkMode }) {
                             </select>
                         </div>
 
+                        <div className="flex flex-wrap gap-3 mt-4">
                         <button
                             onClick={() => deleteTicket(ticket.id)}
-                            className="mt-4 bg-red-500 text-white px-4 py-2 rounded-xl
+                            className="bg-red-500 text-white px-4 py-2 rounded-xl
                             transition duration-300
                             hover:scale-105
                             active:scale-95
@@ -487,20 +488,21 @@ function ManageTickets({ darkMode }) {
 
                         <button
                             onClick={() => assignTicket(ticket.id)}
-                            className="mt-4 ml-3 bg-blue-500 text-white px-4 py-2 rounded-xl
+                            className="bg-blue-500 text-white px-4 py-2 rounded-xl
                             transition duration-300
                             hover:scale-105
                             active:scale-95
                             shadow-sm hover:shadow-md">
                             Assign To Me
                         </button>
+                        </div>
 
                         <Comments ticketId={ticket.id} darkMode={darkMode} />
                         <ActivityLogs ticketId={ticket.id} darkMode={darkMode} />
                     </div>
                 ))}
             </div>
-            <div className="flex gap-3 justify-center mt-8">
+            <div className="flex flex-wrap gap-3 justify-center mt-8">
                 {[...Array(totalPages)].map((_, index) => (
                     <button
                         key={index}

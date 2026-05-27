@@ -40,7 +40,7 @@ function StatsCards({ tickets, darkMode }) {
             {cards.map((card, index) => (
                 <div
                     key={index}
-                    className={`p-6 rounded-3xl shadow-sm border transition
+                    className={`p-4 sm:p-6 rounded-3xl shadow-sm border transition
                     ${
                         darkMode
                             ? "bg-slate-900 border-slate-700 text-white"

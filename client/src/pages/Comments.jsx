@@ -55,7 +55,7 @@ function Comments({ ticketId, darkMode }) {
                 {comments.map((comment) => (
                     <div
                         key={comment.id}
-                        className={`p-4 rounded-xl
+                        className={`p-3 sm:p-4 rounded-xl
                         ${
                             darkMode
                                 ? "bg-slate-800 text-white"

@@ -34,7 +34,7 @@ function ActivityLogs({ ticketId, darkMode }) {
                 {logs.map((log) => (
                     <div
                         key={log.id}
-                        cclassName={`p-3 rounded-xl border transition ${
+                        className={`p-3 rounded-xl border transition ${
                             darkMode
                                 ? "bg-slate-800 border-slate-700 text-white"
                                 : "bg-slate-100 border-slate-200 text-slate-800"

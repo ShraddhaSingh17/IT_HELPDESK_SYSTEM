@@ -56,13 +56,13 @@ function AnalyticsCharts({ tickets, darkMode }) {
         },
     ];
 
-    const COLORS = ["#22c55e", "#eab308", "#ef4444", "3b82f6"];
+    const COLORS = ["#22c55e", "#eab308", "#ef4444", "#3b82f6"];
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-16">
             <div
-                className={`p-6 rounded-3xl shadow-sm border hover:-translate-y-1
-            duration-300
+                className={`p-4 sm:p-6 rounded-3xl shadow-sm border hover:-translate-y-1
+            duration-300 overflow-hidden
             ${
                 darkMode
                     ? "bg-slate-900 border-slate-700 text-white"
@@ -72,7 +72,7 @@ function AnalyticsCharts({ tickets, darkMode }) {
                     Ticket Status Analytics
                 </h2>
 
-                <ResponsiveContainer width="100%" height={300}>
+                <ResponsiveContainer width="100%" height={window.innerWidth < 640 ? 250 : 300}>
                     <PieChart>
                         <Pie
                             data={statusData}
@@ -94,8 +94,8 @@ function AnalyticsCharts({ tickets, darkMode }) {
             </div>
 
             <div
-                className={`p-6 rounded-3xl shadow-sm border hover:-translate-y-1
-            duration-300
+                className={`p-4 sm:p-6 rounded-3xl shadow-sm border hover:-translate-y-1
+            duration-300 overflow-hidden
             ${
                 darkMode
                     ? "bg-slate-900 border-slate-700 text-white"
@@ -105,7 +105,7 @@ function AnalyticsCharts({ tickets, darkMode }) {
                     Priority Analytics
                 </h2>
 
-                <ResponsiveContainer width="100%" height={300}>
+                <ResponsiveContainer width="100%" height={window.innerWidth < 640 ? 250 : 300}>
                     <BarChart data={priorityData}>
                         <CartesianGrid strokeDasharray="33" />
 

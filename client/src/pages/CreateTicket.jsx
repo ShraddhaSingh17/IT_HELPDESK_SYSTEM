@@ -63,7 +63,7 @@ function CreateTicket({ darkMode }) {
 
     return (
         <div
-            className={`p-6 rounded-3xl shadow-sm border hover:-translate-y-1
+            className={`p-4 sm:p-6 rounded-3xl shadow-sm border hover:-translate-y-1
             duration-300
         ${
             darkMode

@@ -66,7 +66,7 @@ ${
                 {tickets.map((ticket) => (
                     <div
                         key={ticket.id}
-                        className={`p-6 rounded-3xl shadow-sm border transition
+                        className={`p-4 sm:p-6 rounded-3xl shadow-sm border transition
 ${
     darkMode
         ? "bg-slate-900 border-slate-700 text-white"
@@ -83,7 +83,7 @@ ${
                         </div>
 
                         <p
-                            className={`${darkMode ? "text-slate-300" : "text-gray-600"} mb-4`}>
+                            className={`${darkMode ? "text-slate-300" : "text-gray-600"} mb-4 break-words`}>
                             {ticket.description}
                         </p>
 
@@ -91,7 +91,7 @@ ${
                             <a href={`${API_BASE_URL}/uploads/${ticket.attachment}`}
                             target="_blank"
                             rel="noreferrer"
-                            className="text-green-500 underline block mb-4">
+                            className="text-green-500 underline block mb-4 break-all">
                                 View Attachment
                             </a>
                         )}

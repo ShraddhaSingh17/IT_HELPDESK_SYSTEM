@@ -94,7 +94,7 @@ function Layout({ children, title }) {
                         </div>
                     </div>
 
-                    <div className="flex gap-3">
+                    <div className="flex flex-col sm:flex-row gap-3">
                         <button
                             onClick={() => setDarkMode(!darkMode)}
                             className="mr-4 bg-slate-800 text-white px-4 py-2 rounded-xl">
@@ -116,7 +116,7 @@ function Layout({ children, title }) {
                 </div>
 
                 <div
-                    className={`p-8 transition duration-300 ${
+                    className={`p-4 sm:p-8 transition duration-300 ${
                         darkMode ? "text-white" : "text-slate-800"
                     }`}>
                     {React.Children.map(children, (child) =>
