@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 26, 2026 at 06:42 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: sql111.infinityfree.com
+-- Generation Time: May 27, 2026 at 03:10 PM
+-- Server version: 11.4.11-MariaDB
+-- PHP Version: 7.2.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `helpdesk_db`
+-- Database: `if0_42026156_helpdesk_db`
 --
 
 -- --------------------------------------------------------
@@ -74,7 +75,23 @@ INSERT INTO `activity_logs` (`id`, `ticket_id`, `user_id`, `action`, `created_at
 (32, 0, 0, '', '2026-05-26 14:49:42'),
 (33, 32, 1, 'changed status to closed', '2026-05-26 14:49:42'),
 (34, 0, 0, '', '2026-05-26 14:50:29'),
-(35, 29, 1, 'changed status to resolved', '2026-05-26 14:50:29');
+(35, 29, 1, 'changed status to resolved', '2026-05-26 14:50:29'),
+(36, 34, 1, 'assigned ticket', '2026-05-26 18:34:26'),
+(37, 34, 1, 'changed status to in_progress', '2026-05-26 18:34:53'),
+(38, 33, 1, 'changed priority to high', '2026-05-26 18:35:13'),
+(39, 33, 1, 'assigned ticket', '2026-05-26 18:35:19'),
+(40, 33, 1, 'changed status to in_progress', '2026-05-26 18:35:31'),
+(41, 34, 20, 'changed priority to medium', '2026-05-26 19:06:45'),
+(42, 34, 20, 'changed priority to high', '2026-05-26 19:06:50'),
+(43, 34, 1, 'deleted ticket', '2026-05-26 19:14:33'),
+(44, 43, 27, 'changed status to in_progress', '2026-05-27 19:07:17'),
+(45, 42, 27, 'changed priority to low', '2026-05-27 19:07:40'),
+(46, 44, 27, 'assigned ticket', '2026-05-27 19:07:49'),
+(47, 44, 27, 'changed status to in_progress', '2026-05-27 19:08:10'),
+(48, 39, 27, 'changed priority to high', '2026-05-27 19:08:34'),
+(49, 39, 27, 'assigned ticket', '2026-05-27 19:08:45'),
+(50, 42, 27, 'changed status to closed', '2026-05-27 19:09:23'),
+(51, 44, 27, 'changed status to resolved', '2026-05-27 19:09:51');
 
 -- --------------------------------------------------------
 
@@ -114,13 +131,12 @@ CREATE TABLE `tickets` (
 --
 
 INSERT INTO `tickets` (`id`, `title`, `description`, `priority`, `status`, `created_by`, `assigned_to`, `created_at`, `updated_at`, `attachment`) VALUES
-(26, 'Email Attachment Upload Failed', 'Unable to send attachments larger than 10MB via email.', 'medium', 'in_progress', 13, 1, '2026-05-26 08:20:41', '2026-05-26 08:34:28', ''),
-(27, 'Microphone Not Working in Meetings', 'My microphone is not working in Zoom/Teams even though it is detected.', 'high', 'in_progress', 13, 1, '2026-05-26 08:22:05', '2026-05-26 08:34:11', ''),
-(28, 'Software Installation Request', 'I need VS COde and Node.js installed for my development work.', 'low', 'open', 13, NULL, '2026-05-26 08:23:10', '2026-05-26 08:29:13', ''),
-(29, 'Wi-Fi Disconnecting Frequently', 'My Wi-Fi keeps disconnecting during meetings and file uploads.', 'high', 'resolved', 13, 1, '2026-05-26 08:24:23', '2026-05-26 14:50:27', ''),
-(30, 'Printer Offline Issue', 'The office printer shows offline for all users in my department.', 'high', 'in_progress', 17, 1, '2026-05-26 08:26:26', '2026-05-26 08:33:51', ''),
-(31, 'Outlook Emails Not Syncing', 'New emails are not appearing in Outlook desktop app, but webmail is working fine.', 'medium', 'open', 17, NULL, '2026-05-26 08:27:54', '2026-05-26 08:27:54', ''),
-(32, 'New Employee Account Setup', 'A new employee joined. Please create email, system access, and required permissions.', 'high', 'closed', 1, 1, '2026-05-26 14:48:17', '2026-05-26 14:49:40', '');
+(39, 'Suspicious Login Activity', 'I received alerts of multiple failed login attempts on my account.', 'high', 'open', 28, 27, '2026-05-27 19:01:39', '2026-05-27 19:08:43', '1779908500_Test-Logo.svg.png'),
+(40, 'Monitor Flickering Issue', 'External monitor flickers continuously after HDMI connection.', 'medium', 'open', 28, NULL, '2026-05-27 19:02:35', '2026-05-27 19:02:35', ''),
+(41, 'Phishing Email Report', 'I received a suspicious email asking for login credentials', 'high', 'open', 28, NULL, '2026-05-27 19:03:14', '2026-05-27 19:03:14', ''),
+(42, 'GitHub Repository Access Request', 'Please provide access to the project GitHub repository', 'low', 'closed', 22, NULL, '2026-05-27 19:04:53', '2026-05-27 19:09:21', ''),
+(43, 'API Returning 500 Error', 'Login API is returning Internal Server Error after recent updates.', 'medium', 'in_progress', 22, NULL, '2026-05-27 19:05:34', '2026-05-27 19:07:15', ''),
+(44, 'New Employee Account Setup', 'A new employee joined. Please create email, system access, and required permissions', 'high', 'resolved', 27, 27, '2026-05-27 19:06:37', '2026-05-27 19:09:49', '');
 
 -- --------------------------------------------------------
 
@@ -142,10 +158,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `created_at`) VALUES
-(1, 'Admin', 'admin@test.com', '12345678', 'admin', '2026-05-21 19:08:48'),
-(13, 'User', 'user@test.com', '1234567890', 'user', '2026-05-24 17:00:57'),
-(16, '', '', '', 'user', '2026-05-25 12:17:17'),
-(17, 'User2', 'user2@test.com', '12345', 'user', '2026-05-25 12:17:17');
+(22, 'user1', 'user1@test.com', '$2y$10$0WPSP9OECyu7/BuTHj/2B.VacLWPBTR5UpLjOEqsJXSGHXYolcZBS', 'user', '2026-05-27 18:26:18'),
+(27, 'Admin', 'admin@test.com', '$2y$10$L2SyjuZ3qGff51FaKbSrH.FcHRcFlhhsfcEGUUzFengUb7WD0s0e6', 'admin', '2026-05-27 18:55:02'),
+(28, 'user', 'user@test.com', '$2y$10$g6r5IcmJaGm8taR7IuFDUONdy/0Px7BwBj9tqENHmQ4L4Tnj09dJ6', 'user', '2026-05-27 18:57:35'),
+(29, 'user2', 'user2@test.com', '$2y$10$pof1MG29F1saZoTolNuGdugYUYccfJq64uvs.lvloJVz.Qluxqk1K', 'user', '2026-05-27 18:57:44');
 
 --
 -- Indexes for dumped tables
@@ -188,25 +204,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activity_logs`
 --
 ALTER TABLE `activity_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tickets`
 --
 ALTER TABLE `tickets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Constraints for dumped tables
