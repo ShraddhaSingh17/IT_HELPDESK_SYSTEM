@@ -5,10 +5,10 @@ header("Access-Control-Allow-Headers: *");
 header("Content-Type: application/json");
 
 $conn = new mysqli(
-    "sql111.infinityfree.com",
-    "if0_42026156",
-    "ej7jMrFoMkGqpU",
-    "if0_42026156_helpdesk_db"
+    $host = "YOUR_HOST";
+    $user = "YOUR_USERNAME";
+    $password = "YOUR_PASSWORD";
+    $dbname = "YOUR_DATABASE";
 );
 
 $conn->set_charset("utf8mb4");
